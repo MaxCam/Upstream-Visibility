@@ -1,0 +1,137 @@
+<div class="bgpst-container" style="min-height: 400px;">
+
+    <img class="bgpstr-spinner" src="{{widgetUrl}}view/img/streamgraph-spinner.gif"/>
+    <div class="modal time-modal" data-backdrop="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="display: inline;">Select Time Window</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row vertical-align">
+                            <div class="col-xs-1">
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="col-xs-1">
+                                    <label for="start-date" class="col-form-label col-form-label-lg">Start:</label>
+                                </div>
+                                <div class="col-xs-1">
+                                    <hr />
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" readonly class="start-date form-control form-control-lg">
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-1">
+                            </div>
+
+                            <div class="col-xs-5">
+                                <div class="col-xs-1">
+                                    <label for="stop-date" class="col-form-label col-form-label-lg">Stop:</label>
+                                </div>
+                                <div class="col-xs-1">
+                                    <hr />
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" readonly class="stop-date form-control form-control-lg">
+                                </div>
+                            </div>
+                            <div class="col-xs-1">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="margin: 0">
+                    <div class="btn-group apply-time" data-toggle="buttons" data-dismiss="modal">
+                        <label class="btn btn-primary" title="Ok">
+                            Ok
+                        </label>
+                    </div>
+
+                    <div class="btn-group" data-toggle="buttons" data-dismiss="modal">
+                        <label class="btn btn-default" title="Close">
+                            Close
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bgpst-header">
+
+        <div class="btn-group" style="vertical-align: bottom">
+            <div style="float: left; padding: 3px;">Distance from origin AS</div>
+            <input type="number" name="asn_lvl" min="0" max="50" class="asn_lvl form-control jquery_ui_spinner">
+        </div>
+
+        <div class="btn-group time-modal-button" data-toggle="modal" title="Time Range" data-target=".time-modal">
+            <label class="btn btn-default btn-xs date_range_button">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </label>
+        </div>
+
+        <div class="btn-group graph_type" data-toggle="buttons" >
+            <label class="btn btn-default btn-xs active" title="Global View">
+                <input class="graph-type-view" type="radio" name="graph_type" checked="checked" value="stream" autocomplete="off">
+                Global
+            </label>
+            <label class="btn btn-default btn-xs" title="Local View">
+                <input class="graph-type-view" type="radio" name="graph_type" value="heat" autocomplete="off">
+                Local
+            </label>
+        </div>
+
+        <div class="btn-group" data-toggle="buttons">
+            <span class="dropdown">
+                <button type="button" class="btn-xs btn-group dropdown-toggle sort_btn btn btn-default text_centerd" data-toggle="dropdown" title="Optimizations">
+                    <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right repositioned">
+                    <li ><a href="#" class="shuffle_color_map_btn">Shuffle Color Map</a></li>
+                    <li class="divider stream_option"></li>
+
+                    <!-- STREAMGRAPH OPTIONS -->
+                    <li class="stream_option"><a href="#" class="exchange_greedy_sort_btn">Ordering by Near Flows</a></li>
+                    <li class="stream_option"><a href="#" class="point_dist_greedy_btn">Ordering by STDEV Swap</a></li>
+                    <li class="stream_option"><a href="#" class="wiggle_max_btn">Ordering by Wiggle Swap (Min Max)</a></li>
+                    <li class="stream_option"><a href="#" class="wiggle_sum_btn">Ordering by Wiggle Swap (Min Sum )</a></li>
+                    <li class="divider stream_option"></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_ascstdev_btn">Sort By Frequency STD Dev (ASC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_dscstdev_btn">Sort By Frequency STD Dev (DSC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_ascvar_btn">Sort By Frequency Variance (ASC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_dscvar_btn">Sort By Frequency Variance (DSC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_ascavg_btn">Sort By Frequency Avg (ASC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_dscavg_btn">Sort By Frequency Avg (DSC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_ascsum_btn">Sort By Frequency Sum (ASC)</a></li>
+                    <li class="stream_option"><a href="#" class="sort_asn_dscsum_btn">Sort By Frequency Sum (DSC)</a></li>
+
+                    <!-- HEATMAP OPTIONS -->
+                    <li class="heat_option"><a href="#" class="heat_stdev_sort_btn">Ordering by StdDev </a></li>
+                    <li class="heat_option"><a href="#" class="heat_greedy_sort_1_btn">Ordering by Exchanges Greedy (Level) </a></li>
+                    <li class="heat_option"><a href="#" class="heat_greedy_sort_2_btn">Ordering by Exchanges Greedy (Level + Changes) </a></li>
+                    <li class="heat_option"><a href="#" class="heat_as_sort">Sort By Collector Peer AS</a></li>
+                    <li class="heat_option"><a href="#" class="heat_country_sort">Sort By Collector Peer Country </a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+
+    <div class="svg_tooltip hidden"></div>
+    <div class="canvas_container main_svg" style="min-height: 300px;">
+        <svg style="height: 100%; width: 100%;"></svg>
+    </div>
+    <div class="canvas_container mini_svg" style="height: 70px;">
+        <svg style="height: 100%; width: 100%;"></svg>
+    </div>
+    <div class="query-meta-info" style="font-size: 0.7em;">
+        Showing results for <b><span class="meta-info-resource"></span></b> from <b class="meta-query-start-time"></b> to <b class="meta-query-stop-time"></b>
+    </div>
+</div>

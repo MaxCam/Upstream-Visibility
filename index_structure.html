@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget</title>
+    <script>
+        EXTERNAL_WIDGET_URL = ""; ///BGP_streamgraph/
+    </script>
+    <script src="bgpst-widget-main.js"></script>
+</head>
+<body>
+
+<div style="margin-left: 200px;" id="place-here"></div>
+
+<script>
+
+    var streamgraphStartDate = new Date();
+    var streamgraphStopDate = new Date(streamgraphStartDate);
+    streamgraphStopDate.setDate(streamgraphStopDate.getDate()-2);
+
+    var widget = initBGPst(
+            '#place-here',
+            {
+                dev: true
+            }, // Tool options, see table below for more info
+            {
+                // startDate: 1362301100,
+                startDate: 1477091170,
+                stopDate: 1477116370,
+              targets: ["208.76.59.0/24"],
+//                targets: ["2400:cb00:2049::/48"]
+//                targets: ["AS137"],
+//              targets: ["2607:f0d0:1002:51::4"]
+            } // Query options, see table below for more info
+    );
+    
+</script>
+
+</body>
+</html>
