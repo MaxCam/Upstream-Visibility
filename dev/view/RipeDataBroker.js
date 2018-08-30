@@ -97,7 +97,7 @@ define([
                 env.lastApiCall = config.dataAPIs.main
                     .concat("?resource=" + decodeURIComponent(env.queryParams.targets.join(",")))
                     .concat("?starttime=" + decodeURIComponent(env.queryParams.startDate.unix()))
-                    .concat("?endtime=" + decodeURIComponent(env.queryParams.stopDate.join(",")));
+                    .concat("?endtime=" + decodeURIComponent(env.queryParams.stopDate.unix()));
 
                 $.ajax({
                     url: config.dataAPIs.main,
