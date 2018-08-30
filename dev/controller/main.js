@@ -5,7 +5,7 @@ define([
 ], function(utils, GraphDrawer, GuiManager){
 
     var Main = function(env) {
-        this.exposedMethods = ["getVersion", "on", "init"];
+        this.exposedMethods = ["getVersion", "on", "init", "getEnvironment"];
 
         this.getVersion = function(){
             return env.version;
@@ -13,6 +13,10 @@ define([
 
         this.on = function(event, callback){
             utils.observer.subscribe(event, callback, this);
+        };
+
+        this.getEnvironment = function () {
+            return env;
         };
 
         this.init = function(){
