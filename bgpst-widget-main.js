@@ -126,9 +126,10 @@ function initBGPst(domElement, instanceParams, queryParams){
 if (typeof jQuery != 'undefined' && jQuery.fn && window.ripestat) {
 
     jQuery.fn.interdomainLandscape = function (data, widget_width, mark_loaded) {
-        var thisWidget, widgetParams, domElement, oldReadyFunction, instance;
+        var thisWidget, widgetParams, domElement, oldReadyFunction, instance, widgetId;
 
         thisWidget = this.statWidget();
+        widgetId = thisWidget.get_main_div().attr("id");
         widgetParams = thisWidget.get_params();
         domElement = jQuery(this)[0];
         oldReadyFunction = widgetParams.ready;
@@ -170,6 +171,12 @@ if (typeof jQuery != 'undefined' && jQuery.fn && window.ripestat) {
                     } else {
                         updateLink = true;
                     }
+
+                    require([STAT_WIDGET_API_URL + "js/misc.js"], function(misc){
+                        var env = instance.shell().getEnvironment();
+                        misc.clearDataURLs(widgetId);
+                        misc.recordDataURL(widgetId, env.lastApiCall);
+                    });
 
                     $(domElement).find(".messages").remove();
                 });
