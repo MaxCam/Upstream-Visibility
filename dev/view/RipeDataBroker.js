@@ -94,6 +94,11 @@ define([
         this.getBGPData = function() {
             return new Promise((resolve, reject) => {
 
+                env.lastApiCall = config.dataAPIs.main
+                    .concat("?resource=" + decodeURIComponent(env.queryParams.targets.join(",")))
+                    .concat("?starttime=" + decodeURIComponent(env.queryParams.startDate.unix()))
+                    .concat("?endtime=" + decodeURIComponent(env.queryParams.stopDate.join(",")));
+
                 $.ajax({
                     url: config.dataAPIs.main,
                     dataType: "json",
