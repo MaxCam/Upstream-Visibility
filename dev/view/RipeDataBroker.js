@@ -161,13 +161,10 @@ define([
                     resolve();
                 }
                 $.ajax({
-                    url: config.dataAPIs.cpInfo,
+                    url: config.dataAPIs.cpInfo.replace("0000", res.ip),
                     dataType: "json",
-                    data: {
-                        resource: res.ip
-                    },
                     success: function(data){
-                        res["geo"] = data.data.locations[0].country;
+                        res["geo"] = (data && data.location) ? data.location.countryCodeAlpha2 : "-";
                         $this.current_parsed.known_cp[res.id] = res;
                         resolve();
                     },

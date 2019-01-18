@@ -109,7 +109,7 @@ define([
          * Init Dependency Injection Vector
          */
         env = {
-            "version": "18.7.25.2",
+            "version": "19.1.18.2",
             "dev": instanceParams.dev,
             "showMetricsScore": instanceParams.showMetricsScore,
             "logger": new Logger(),

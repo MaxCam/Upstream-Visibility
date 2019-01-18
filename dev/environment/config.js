@@ -15,7 +15,7 @@ define([], function(){
         dataAPIs:{
             main: "https://stat.ripe.net/data/bgplay/data.json",
             count: "https://stat.ripe.net/data/ris-peer-count/data.json",
-            cpInfo: "https://stat.ripe.net/data/geoloc/data.json",
+            cpInfo: "https://ipmap.ripe.net/api/v1/locate/0000/best",
             asInfo: "https://stat.ripe.net/data/as-overview/data.json",
             ipInfo: "https://stat.ripe.net/data/whats-my-ip/data.json" 
         },
